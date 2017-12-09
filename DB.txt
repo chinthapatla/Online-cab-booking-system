@@ -1,0 +1,28 @@
+CREATE TABLE IF NOT EXISTS customer (
+  Customer_No int(11) NOT NULL AUTO_INCREMENT,
+  Customer_Name varchar(30) NOT NULL,
+  Password varchar(30) NOT NULL,
+  Email varchar(50) NOT NULL,
+  Phone varchar(15) NOT NULL,
+  PRIMARY KEY (Customer_No)
+);
+
+CREATE TABLE IF NOT EXISTS Booking (
+  Booking_Number int(10) NOT NULL AUTO_INCREMENT,
+  Customer_ID int(11) NOT NULL,
+  Passenger_Name varchar(30) NOT NULL,
+  Passenger_Phone varchar(15) NOT NULL,
+  Unit_Number varchar(10) DEFAULT NULL,
+  Street_Number varchar(10) NOT NULL,
+  Street_Name varchar(50) NOT NULL,
+  Suburb varchar(50) NOT NULL,
+  Destination_Suburb varchar(50) NOT NULL,
+  Pickup_Date date NOT NULL,
+  Pickup_Time time NOT NULL,
+  Booking_DT datetime NOT NULL,
+  Booking_status varchar(30) NOT NULL,
+  PRIMARY KEY (Booking_Number),
+  FOREIGN KEY FK_CUST_NAME (Customer_ID) REFERENCES customer(Customer_No)
+);
+
+INSERT INTO customer values(null,'admin','12345','admin@cabsonline.com','0424-485-291');
